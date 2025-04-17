@@ -1,11 +1,6 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": [
-    "react",
-    "unicorn",
-    "typescript",
-    "oxc"
-  ],
+  "plugins": ["react", "unicorn", "typescript", "oxc"],
   "categories": {},
   "rules": {
     "for-direction": "warn",
@@ -135,10 +130,5 @@
     "builtin": true
   },
   "globals": {},
-  "ignorePatterns": [
-    "node_modules",
-    "dist",
-    "build",
-    "public"
-  ]
+  "ignorePatterns": ["node_modules", "dist", "build", "public"]
 }

@@ -11,12 +11,17 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.0.1",
+    "@mjackson/form-data-parser": "^0.7.0",
     "@react-router/node": "^7.5.0",
     "@react-router/serve": "^7.5.0",
     "isbot": "^5.1.17",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router": "^7.5.0"
+    "react-hook-form": "^7.55.0",
+    "react-router": "^7.5.0",
+    "remix-utils": "^8.5.0",
+    "zod": "^3.24.3"
   },
   "devDependencies": {
     "@react-router/dev": "^7.5.0",
