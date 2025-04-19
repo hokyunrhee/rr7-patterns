@@ -4,9 +4,9 @@ import { useHydrated } from "remix-utils/use-hydrated";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Form, redirect, useSubmit, data, useActionData } from "react-router";
-import { formSchema } from "./form-schema";
+import { redirect, useSubmit, data, useActionData } from "react-router";
 import { wait } from "~/utils/time";
+import { formSchema } from "./form-schema";
 import { parseZodError } from "./utils";
 
 export async function action({ request }: Route.ActionArgs) {
@@ -40,11 +40,14 @@ export default function ProgressivelyEnhancedFormValidation() {
 
   return (
     <div className="flex py-24">
-      <Form
+      <form
         method="post"
         className="max-w-md mx-auto w-full p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md space-y-6"
         noValidate={isHydrated}
-        onSubmit={handleSubmit((_, event) => submit(event?.target))}
+        onSubmit={(event) => {
+          const currentTarget = event.currentTarget;
+          return handleSubmit(() => submit(currentTarget))(event);
+        }}
       >
         <div>
           <label
@@ -96,7 +99,7 @@ export default function ProgressivelyEnhancedFormValidation() {
         <button className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md cursor-pointer transition-colors duration-200">
           Submit
         </button>
-      </Form>
+      </form>
     </div>
   );
 }
